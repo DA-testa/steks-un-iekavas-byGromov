@@ -1,4 +1,4 @@
-# python3
+# python3 Aleksandrs Pučenkins 17.gr.
 
 from collections import namedtuple
 
