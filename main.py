@@ -17,24 +17,24 @@ def find_mismatch(text):
     for i, next in enumerate(text):
         if next in "([{":
 
-            opening_brackets_stack.append(Bracket(next, i+1))
+            opening_brackets_stack.append(Bracket(next, i))
             pass
 
         if next in ")]}":
             
             if not len(opening_brackets_stack):
-                return i+1
+                return i
             
-            rear_opening_bracket = opening_brackets_stack[len(opening_brackets_stack) - i]
+            rear_opening_bracket = opening_brackets_stack[len(opening_brackets_stack) - 1]
             
             if are_matching(rear_opening_bracket[0], next):
                 opening_brackets_stack.remove(rear_opening_bracket)
             else:
-                return i+1
+                return i
             pass
 
 
-        if len(opening_brackets_stack) == 0:
+        if len(opening_brackets_stack) > 0:
             return 'Success'
         else:
             return i
