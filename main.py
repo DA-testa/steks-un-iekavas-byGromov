@@ -1,5 +1,6 @@
 # python3 
-# Aleksandrs Pučenkins 17.gr. 221RDB335
+# Author: Aleksandrs Pučenkins 17.gr. 221RDB335
+
 from collections import namedtuple
 
 Bracket = namedtuple("Bracket", ["char", "position"])
@@ -13,8 +14,8 @@ def find_mismatch(text):
     opening_brackets_stack = []
     for i, next in enumerate(text):
         if next in "([{":
-            # Process opening bracket, write your code here
-            
+
+            opening_brackets_stack.append(Bracket(next, i+1))
             pass
 
         if next in ")]}":
