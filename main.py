@@ -25,8 +25,20 @@ def find_mismatch(text):
             if not len(opening_brackets_stack):
                 return i+1
             
+            rear_opening_bracket = opening_brackets_stack[len(opening_brackets_stack) - i]
             
+            if are_matching(rear_opening_bracket[0], next):
+                opening_brackets_stack.remove(rear_opening_bracket)
+            else:
+                return i+1
             pass
+
+
+        if len(opening_brackets_stack) == 0:
+            return 'Success'
+        else:
+            return i
+
 
 
 def main():
